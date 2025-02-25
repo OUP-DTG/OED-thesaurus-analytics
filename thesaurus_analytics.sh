@@ -64,8 +64,8 @@ cd "$(dirname "$0")"
 #  and their categorization in the Historical Thesaurus
 # ------------------------------------------------
 
-python main.py computing_senses_compile_senses
-python main.py computing_senses_replace_nodes_with_breadcrumbs
+#python main.py computing_senses_compile_senses
+#python main.py computing_senses_replace_nodes_with_breadcrumbs
 
 
 
