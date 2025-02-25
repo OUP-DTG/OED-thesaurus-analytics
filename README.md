@@ -5,7 +5,7 @@ Collection of scripts for various kinds of analysis and report-generation
 related to the Historical Thesaurus dataset.
 
 
-## Main bash script: thesaurus_analytics.sh
+### Main bash script: thesaurus_analytics.sh
 
 The usual entry point is the top-level bash script `thesaurus_analytics.sh`, which
 orchestrates the sequential running of each step in the pipeline.
@@ -19,7 +19,7 @@ An individual processing step can be run by copying a line from
 `thesaurus_analytics.sh` and running it directly on the command-line.
 
 
-## Set-up for running pipeline.sh from the command line
+### Set-up for running pipeline.sh from the command line
 
 Activate the Python 3.13 virtual environment
 
@@ -40,7 +40,7 @@ to complete with a non-zero exit code, the pipeline as a whole will halt
 at that point.
 
 
-## Command-line format
+### Command-line format
 
 Command-line processes should take the general form:
 
