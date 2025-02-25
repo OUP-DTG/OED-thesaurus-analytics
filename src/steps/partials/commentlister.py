@@ -1,7 +1,7 @@
 from lex.entryiterator import OedEntryIterator
 import dataclassio
 
-import config
+from src import config
 from . import attnthescomments, models
 
 
@@ -9,7 +9,7 @@ def list_attnthes_comments() -> None:
     results: list[models.AttnThesComment] = []
     iterator = OedEntryIterator(
         filepath=config.OEDLATEST_DIRECTORY,
-        progress_bar="multiple",
+        progress_bar="single",
     )
     for entry in iterator.iterate():
         for sense in entry.sense_units():

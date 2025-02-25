@@ -1,7 +1,7 @@
 from lex.oed.thesaurus.taxonomymanager import TaxonomyManager
 import dataclassio
 
-import config
+from src import config
 from . import models
 
 

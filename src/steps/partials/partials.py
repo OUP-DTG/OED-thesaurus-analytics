@@ -7,7 +7,7 @@ from lex.oed.thesaurus.taxonomymanager import TaxonomyManager
 from lex.entryiterator import OedEntryIterator
 import dataclassio
 
-import config
+from src import config
 from . import attnthescomments, models
 
 
@@ -45,7 +45,7 @@ def _results_to_csv(mode: str) -> None:
     iterator = OedEntryIterator(
         filepath=config.OEDLATEST_DIRECTORY,
         include_entry_ids=sense_log.keys(),
-        progress_bar="multiple",
+        progress_bar="single",
     )
     for entry in iterator.iterate():
         for sense in entry.sense_units():
