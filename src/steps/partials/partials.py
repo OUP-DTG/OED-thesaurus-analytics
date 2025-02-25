@@ -26,7 +26,7 @@ def incorrect_to_csv() -> None:
     _results_to_csv("incorrect")
 
 
-def _results_to_csv(mode) -> None:
+def _results_to_csv(mode: str) -> None:
     data = _load_data(mode)
     if mode == "partial":
         data.extend(_load_comment_data())

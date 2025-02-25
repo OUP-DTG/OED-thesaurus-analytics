@@ -1,24 +1,28 @@
 from lex.oed.resources.comments import commentmanager
 
 
-_THES_COMMENTS = None
-
-
 def get_comments(entry_id: str, element_id: str) -> str | None:
-    _load_comments()
+    if not get_comments.comments:
+        get_comments.comments = _load_comments()
+
     entry_id = str(entry_id)
+    if entry_id not in get_comments.comments:
+        return None
+
     element_id = str(element_id)
-    comments = []
-    if entry_id in _THES_COMMENTS:
-        for comment in _THES_COMMENTS[entry_id]:
-            if comment.element_id == element_id:
-                comments.append(comment.text)
-    if comments:
-        return " | ".join(comments)[0:500]
-    return None
+    comments: list[str] = []
+    for comment in get_comments.comments[entry_id]:
+        if comment.element_id == element_id:
+            comments.append(comment.text)
+    if not comments:
+        return None
+    return " | ".join(comments)[0:500]
 
 
-def _thesfilter(comment) -> bool:
+get_comments.comments = {}
+
+
+def _thesfilter(comment: commentmanager.CommentRow) -> bool:
     if comment.text and "attnthes" in comment.text.lower():
         return True
     if comment.topic and "attnthes" in comment.topic.lower():
@@ -26,9 +30,5 @@ def _thesfilter(comment) -> bool:
     return False
 
 
-def _load_comments() -> None:
-    global _THES_COMMENTS
-    if _THES_COMMENTS is None:
-        _THES_COMMENTS = commentmanager.comments_per_entry(
-            filterfunc=_thesfilter,
-        )
+def _load_comments() -> dict[str, list[commentmanager.CommentRow]]:
+    return commentmanager.comments_per_entry(filterfunc=_thesfilter)
