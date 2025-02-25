@@ -5,7 +5,7 @@ Collection of scripts for various kinds of analysis and report-generation
 related to the Historical Thesaurus dataset.
 
 
-## Main bash script: pipeline.sh
+## Main bash script: thesaurus_analytics.sh
 
 The usual entry point is the top-level bash script `thesaurus_analytics.sh`, which
 orchestrates the sequential running of each step in the pipeline.
