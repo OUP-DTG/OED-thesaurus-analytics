@@ -9,7 +9,7 @@ OEDLATEST_DIRECTORY = (
 )
 
 # HT Classifier directories
-HTCLASSIFIER_ROOT = _BASE_DIR / "OED" / "thesaurus" / "htclassifier"
+HTCLASSIFIER_ROOT = _BASE_DIR / "OED" / "projects" / "thesaurus" / "htclassifier"
 NEW_CLASSIFICATION_DIR = HTCLASSIFIER_ROOT / "new_classifications" / "checked_output"
 
 
