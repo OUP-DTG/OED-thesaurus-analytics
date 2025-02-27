@@ -135,4 +135,8 @@ def _load_partials_ids() -> dict[tuple[str, str], str]:
 
 
 def _get_frequency(entry: Entry, sense: SenseUnit) -> str | None:
-    return sense.attribute("freqpm") or entry.attribute("freqpm") or None
+    if sense.attribute("freqpm"):
+        return sense.attribute("freqpm")
+    if sense.is_subentry() or sense.is_subentry_like():
+        return None
+    return entry.attribute("freqpm") or None

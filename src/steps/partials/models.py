@@ -19,6 +19,7 @@ class ThesaurusRecord:
     definition: str | None = None
     start_year: int | None = None
     end_year: int | None = None
+    frequency: str | None = None
     obsolete: bool = False
     revision_file_comment: str | None = None
     htclassifier_comment: str | None = None

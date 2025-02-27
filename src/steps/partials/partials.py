@@ -67,6 +67,7 @@ def _results_to_csv(mode: str) -> None:
                 definition=_clean_definition(sense.definition(length=100)),
                 start_year=sense.date.start,
                 end_year=sense.date.end,
+                frequency=_get_frequency(entry, sense),
                 obsolete=sense.is_marked_obsolete(),
             )
             results.append(thesaurus_record)
@@ -139,3 +140,11 @@ def _clean_definition(definition: str | None) -> str | None:
     if definition.startswith("="):
         return "_" + definition
     return definition
+
+
+def _get_frequency(entry: Entry, sense: SenseUnit) -> str | None:
+    if sense.attribute("freqpm"):
+        return sense.attribute("freqpm")
+    if sense.is_subentry() or sense.is_subentry_like():
+        return None
+    return entry.attribute("freqpm") or None
