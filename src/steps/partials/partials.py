@@ -5,6 +5,8 @@ from collections import defaultdict
 
 from lex.oed.thesaurus.taxonomymanager import TaxonomyManager
 from lex.entryiterator import OedEntryIterator
+from lex.oed.entry import Entry
+from lex.oed.senseunit.senseunit import SenseUnit
 import dataclassio
 
 from src import config
@@ -48,6 +50,10 @@ def _results_to_csv(mode: str) -> None:
         progress_bar="single",
     )
     for entry in iterator.iterate():
+        if entry.is_zz_entry() or entry.is_unpublished_entry():
+            continue
+        entry.remove_unpublished_revsects()
+
         for sense in entry.sense_units():
             if sense.element_id not in sense_log[entry.id]:
                 continue
