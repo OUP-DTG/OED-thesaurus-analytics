@@ -43,6 +43,7 @@ def _get_function(process_name: str) -> Callable:
             fnc = steps.computing_senses.list_senses
         case "computingsensesreplacenodeswithbreadcrumbs":
             fnc = steps.computing_senses.replace_nodes
+
         case "partialslistattnthescomments":
             fnc = steps.partials.list_attnthes_comments
         case "partialslistapproved":
