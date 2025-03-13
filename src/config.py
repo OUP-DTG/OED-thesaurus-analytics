@@ -30,3 +30,7 @@ _PARTIALS_DIR = ROOT_DIRECTORY / "partials"
 PARTIALS_COMMENTS_FILE = _PARTIALS_DIR / "attnthes_comments" / "comments.csv"
 PARTIALS_TRIAGE_DIR = _PARTIALS_DIR / "csv_triage"
 PARTIALS_SUBCATEGORIES_DIR = _PARTIALS_DIR / "partials_subcategories"
+
+# Filepaths for 'long_categories_headers'
+_LONG_CATEGORIES_DIR = ROOT_DIRECTORY / "long_category_headers"
+LONG_CATEGORIES_FILE = _LONG_CATEGORIES_DIR / "long_category_headers.csv"

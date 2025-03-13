@@ -54,6 +54,8 @@ def _get_function(process_name: str) -> Callable:
             fnc = steps.partials.incorrect_to_csv
         case "partialssubcategorizepartials":
             fnc = steps.partials.subcategorize_partials
+        case "listlongcategoryheaders":
+            fnc = steps.long_category_headers.list_long_category_headers
         case _:
             raise ValueError(f"{process_name} is not a valid process name")
     return fnc
